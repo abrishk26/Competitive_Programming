@@ -13,9 +13,8 @@ class Solution:
             return 0
         
 
-        temp = nums
-        temp.append(target)
-        temp = sorted(temp)
+        nums.append(target)
+        nums = sorted(nums)
 
-        return temp.index(target)
+        return nums.index(target)
 
