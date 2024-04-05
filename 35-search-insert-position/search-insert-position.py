@@ -15,7 +15,7 @@ class Solution:
 
         temp = nums
         temp.append(target)
-        temp.sort()
+        temp = sorted(temp)
 
         return temp.index(target)
 
