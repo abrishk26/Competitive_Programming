@@ -5,6 +5,12 @@ class Solution:
             if i == target:
                 return nums.index(i)
         
+        if target > nums[-1]:
+            return len(nums)
+        elif target < nums[0]:
+            return 0
+        
+        
         nums.append(target)
         nums = sorted(nums)
 
