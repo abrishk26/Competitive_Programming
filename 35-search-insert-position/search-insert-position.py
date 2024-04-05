@@ -1,20 +1,11 @@
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
         
-        for i in range(len(nums)):
-            if nums[i] == target:
-                return i
-            elif nums[len(nums) - i - 1] == target:
-                return (len(nums) - i - 1)
+        for i in nums:
+            if i == target:
+                return nums.index(i)
         
-        if target > nums[-1]:
-            return len(nums)
-        elif target < nums[0]:
-            return 0
-        
-
         nums.append(target)
-        nums = sorted(nums)
+        nums.sort()
 
         return nums.index(target)
-
