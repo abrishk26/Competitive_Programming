@@ -10,9 +10,6 @@ class Solution:
             if i == target:
                 return nums.index(i)
         
-       
-        
-        
         nums.append(target)
         nums = sorted(nums)
 
