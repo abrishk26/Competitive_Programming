@@ -9,8 +9,12 @@ class Solution:
         for i in nums:
             if i == target:
                 return nums.index(i)
-        
+
         nums.append(target)
-        nums = sorted(nums)
+        nums.sort()
 
         return nums.index(target)
+
+        
+
+        
