@@ -1,6 +1,5 @@
 struct NumArray {
     nums: Vec<i32>,
-    prefix_sum: Vec<i32>,
 }
 
 
@@ -10,28 +9,22 @@ struct NumArray {
  */
 impl NumArray {
 
-    fn new(nums: Vec<i32>) -> Self {
-        let mut prefix_sum = Vec::new();
-
-        prefix_sum.push(nums[0]);
-
+    fn new(mut nums: Vec<i32>) -> Self {
+        
         for i in 1..nums.len() {
-            prefix_sum.push(prefix_sum[i - 1] + nums[i]);
+            nums[i] += nums[i - 1];
         }
 
-        NumArray { nums, prefix_sum }
+        NumArray { nums }
     }
     
     fn sum_range(&self, left: i32, right: i32) -> i32 {
-        let mut return_value = self.prefix_sum[right as usize];
-        let mut temp = 0;
-
-        while temp < left {
-            return_value -= self.nums[temp as usize];
-            temp += 1;
+        
+        if left == 0 {
+            self.nums[right as usize]
+        } else {
+            self.nums[right as usize] - self.nums[(left - 1) as usize]
         }
-
-        return_value
 
     }
 }
